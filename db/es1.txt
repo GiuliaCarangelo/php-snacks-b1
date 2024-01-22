@@ -8,10 +8,11 @@ WHERE `surname` LIKE '%o';
 
 Selezionare tutti gli appelli di esame con voto medio piu' alto di 28
 
-SELECT *
+SELECT AVG(`vote`), `exam_id`
 FROM `exam_student`
-WHERE `vote` > (SELECT AVG(`vote`) > 28);
-
+GROUP BY `exam_id`
+HAVING AVG(`vote`) > 28
+ORDER BY `AVG(``vote``)` ASC;
 
 
 Selezionare tutti gli insegnanti che hanno la lettera s nel nome e il cui ufficio ha un numero maggiore di 96
@@ -19,3 +20,6 @@ Selezionare tutti gli insegnanti che hanno la lettera s nel nome e il cui uffici
 SELECT *
 FROM `teachers`
 WHERE `name` LIKE '%s%' AND `office_number` > 96;
+
+
+Contare i corsi (courses) che hanno lo stesso corso di laurea (degree)
