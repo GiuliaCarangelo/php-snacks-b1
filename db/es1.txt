@@ -1,0 +1,13 @@
+Selezionare tutti gli studenti il cui cognome finisce per "o"
+
+SELECT *
+FROM `students`
+WHERE `surname` LIKE '%o';
+
+
+
+Selezionare tutti gli appelli di esame con voto medio piu' alto di 28
+
+SELECT *
+FROM `exam_student`
+WHERE `vote` > (SELECT AVG(`vote`) > 28);
